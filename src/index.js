@@ -1,14 +1,18 @@
-import _ from 'lodash';
+// import _ from 'lodash';
 import './style.css';
+import { projects } from './modules/project.js';
+import { task } from './modules/task.js';
 
-function component() {
-    const element = document.createElement('div');
-  
-    // Lodash, currently included via a script, is required for this line to work
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-    element.classList.add('hello');
-  
-    return element;
-  }
-  
-  document.body.appendChild(component());
+// const projects = (() => {    
+//     const panel = document.querySelector('.sidepanel')
+//     const newProject = document.createElement('button');
+//     newProject.className= 'addProject';
+//     panel.appendChild(newProject);    
+
+   
+    
+    
+
+//     // return { };
+//     })
+// ();
