@@ -14,19 +14,26 @@
   }
 
   .header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 40px;
     grid-column: 1 / 4;
     grid-row: 1 / 2;
     background-color: black;
     color: white;
+    font-weight: 900;
+    font-size: 50px;
   }
 
   
-  .content {
-    grid-column: 2 / 4;
-    grid-row: 2 / 4;
-  }
   
   .footer {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-weight: 700;
+    padding-right: 100px;
     grid-column: 1 / 4;
     grid-row: 4 / 5;
     background-color: rgba(0, 0, 0, 0.918);
@@ -46,7 +53,22 @@
     background-color:  rgba(109, 109, 109, 0.363)
   }
 
-  .block {
+  
+  .project_name {
+    color: purple;
+    font-weight: 900;
+    font-size: 30px;
+  }
+  
+  .addProject {
+    width: 40px;
+    height: 20px;
+    background-color: blueviolet;
+    color: white;
+    
+  }
+  
+  .pblock {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,16 +76,69 @@
     border: 2px solid rgba(0, 0, 0, 0.377);
   }
 
-  .project_name {
+  .projectList {
+    font-size: 20px;
     color: purple;
     font-weight: 900;
-    font-size: 30px;
   }
 
-  .addProject {
+  .editProject {
+    color: white;
+    background-color: green;
     width: 40px;
     height: 20px;
-    background-color: blueviolet;
-    color: white;
+  }
 
+  .removeProject {
+    color: white;
+    background-color: red;
+    width: 40px;
+    height: 20px;
+  }
+  
+  
+  /* ------------------------main content------------- */
+  .content {
+    grid-column: 2 / 4;
+    grid-row: 2 / 4;
+    color: purple;
+    font-weight: 900;
+    font-size: 20px;
+  }
+  
+  .block {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.377);
+    padding-left: 30px;
+  }
+  
+  .deleteTask {
+    width: 40px;
+    height: 20px;
+    background-color: red;
+    color: white;
+  }
+  
+  .editTask {
+    width: 50px;
+    height: 20px;
+    background-color: green;
+    color: white;
+  }
+
+  .taskName {
+    width: 500px;
+    height: 20px;
+    font-size: 15px;
+    color: purple;
+    font-weight: 900;
+  }
+
+  .taskInput {
+    font-size: 20px;
+    font-weight: 900;
+    color: purple;
   }
