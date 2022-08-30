@@ -32,6 +32,12 @@ export const Dom = (() => {
         section.appendChild(deleteProject); 
         section.appendChild(editProject);
         section.appendChild(projectName);
+        const deleteP = () => {
+            panel.removeChild(panel.firstChild);
+        }
+
+        deleteProject.addEventListener('click', deleteP);
+    
     }
 
     const task = () => {
@@ -54,6 +60,7 @@ export const Dom = (() => {
     sectionTask.appendChild(taskList);
     sectionTask.appendChild(taskName);
     sectionTask.appendChild(pickDate);
+    
     }
 
     const taskAdd = () => {
@@ -85,6 +92,6 @@ export const Dom = (() => {
     taskName.value = ''
     }
 
-    return { projects, projectAdd, taskAdd, task };
+    return { projects, projectAdd, taskAdd, task};
     })
 ();
