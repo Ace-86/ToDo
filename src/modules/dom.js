@@ -1,16 +1,20 @@
 export const Dom = (() => { 
     
     const projects = () => {
-    const panel = document.querySelector('.sidepanel')
+    const panel = document.querySelector('.sidepanel');
+    const modal = document.createElement('button');
     const newProject = document.createElement('button');
     const projectName = document.createElement('p');
     const section = document.createElement('div');
     section.className = 'pblock';
     projectName.className= 'project_name';
     projectName.textContent= 'Create Project';
+    modal.className= 'projectModal';
+    modal.textContent='+';
     newProject.className= 'addProject';
     newProject.textContent='+';
     panel.appendChild(section);
+    section.appendChild(modal);
     section.appendChild(newProject); 
     section.appendChild(projectName);   
     }
