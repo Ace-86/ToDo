@@ -1,3 +1,5 @@
+// import {modals} from './modal.js';
+
 export const Dom = (() => { 
     
     const projects = () => {
@@ -20,14 +22,21 @@ export const Dom = (() => {
     }
 
     const projectAdd = () => {
-        const panel = document.querySelector('.sidepanel')
+        const $submit = document.querySelector('#submit1');
+        const panel = document.querySelector('.sidepanel');
+        const pdate = document.querySelector('#project_date');
         const editProject = document.createElement('button');
         const projectName = document.createElement('p');
         const deleteProject = document.createElement('button');
         const section = document.createElement('div');
+        const $title = document.querySelector('#title');
+        const $date = document.createElement('p');
+        const modal = document.querySelector('#modalForm');
+        $date.className = 'projectDate';
+        $date.textContent = pdate.value;
         section.className = 'pblock';
         projectName.className = 'projectList';
-        projectName.textContent = 'Project ';
+        projectName.textContent = $title.value;
         deleteProject.className = 'removeProject';
         deleteProject.textContent = 'X';
         editProject.className= 'editProject';
@@ -36,12 +45,19 @@ export const Dom = (() => {
         section.appendChild(deleteProject); 
         section.appendChild(editProject);
         section.appendChild(projectName);
+        section.appendChild($date);
+        
+        // $submit.addEventListener('click', function() {
+        //     modal.style.display = 'none';
+        // });
+
         const deleteP = () => {
             panel.removeChild(panel.firstChild);
         }
 
         deleteProject.addEventListener('click', deleteP);
-    
+        pdate.value = '';
+        $title.value= '';
     }
 
     const task = () => {
