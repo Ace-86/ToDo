@@ -22,7 +22,6 @@ export const Dom = (() => {
     }
 
     const projectAdd = () => {
-        const $submit = document.querySelector('#submit1');
         const panel = document.querySelector('.sidepanel');
         const pdate = document.querySelector('#project_date');
         const editProject = document.createElement('button');
@@ -47,21 +46,20 @@ export const Dom = (() => {
         section.appendChild(projectName);
         section.appendChild($date);
         
-        // $submit.addEventListener('click', function() {
-        //     modal.style.display = 'none';
-        // });
-
         const deleteP = () => {
             panel.removeChild(panel.firstChild);
         }
 
         deleteProject.addEventListener('click', deleteP);
+        
+        // ---------clears modal inputs----------
         pdate.value = '';
         $title.value= '';
     }
 
     const task = () => {
     const $content = document.querySelector('.content')
+        $content.innerHTML = '';
     const newTask = document.createElement('button');
     const taskName = document.createElement('input');
     const sectionTask = document.createElement('div');
