@@ -1,4 +1,4 @@
-// import {modals} from './modal.js';
+import { Storage } from './storage.js';
 
 export const Dom = (() => { 
     
@@ -45,7 +45,7 @@ export const Dom = (() => {
         section.appendChild(editProject);
         section.appendChild(projectName);
         section.appendChild($date);
-        
+        Storage.getUserInput();
         const deleteP = () => {
             panel.removeChild(panel.firstChild);
         }
@@ -107,6 +107,7 @@ export const Dom = (() => {
     sectionTask.appendChild(taskList);
     sectionTask.appendChild(taskInput); 
     sectionTask.appendChild(showDate);
+    Storage.getTaskInput();
     taskName.value = ''
     }
 
