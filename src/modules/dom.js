@@ -25,7 +25,7 @@ export const Dom = (() => {
         const panel = document.querySelector('.sidepanel');
         const pdate = document.querySelector('#project_date');
         const editProject = document.createElement('button');
-        const projectName = document.createElement('p');
+        const projectName = document.createElement('li');
         const deleteProject = document.createElement('button');
         const section = document.createElement('div');
         const $title = document.querySelector('#title');
@@ -87,7 +87,7 @@ export const Dom = (() => {
     const $content = document.querySelector('.content');
     const editTask = document.createElement('button');
     const deleteTask = document.createElement('button');
-    const taskInput = document.createElement('p');
+    const taskInput = document.createElement('li');
     const sectionTask = document.createElement('div');
     const taskList = document.createElement('div');
     const showDate = document.createElement('p')
