@@ -8,7 +8,23 @@
     <body>
     <div class="page-wrap">
         <div class="header" id="border">To-Do List</div>
-        <div class="sidepanel" id="border">  </div>
+        <div class="sidepanel" id="border">
+            <h1 class="createProject"> My List</h1>
+                <ul class="lists" data-lists> 
+                    <!-- <li class=" list name active list"></li> -->
+                </ul>    
+                
+                <form action=" " data-new-list-form>
+                    <input
+                    data-new-list-input
+                    type="text"
+                    class="new list"
+                    placeholder="new list name"
+                    aria-label="new list name"
+                    />
+                    <button class="btn create" aria-label="create new list"> + </button>
+                </form>
+        </div>
         <div class="content" id="border"> </div>
         <div class="footer" id="border">
         <p> Created by Aaron Griffin</p>
