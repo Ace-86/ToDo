@@ -2,13 +2,7 @@ import { Dom } from "./dom";
 
 export const Storage = (() => {
     
-    let projectArr = [{
-        id: 1,
-        name: 'name'
-    }, {
-        id: 2,
-        name: 'to-do'
-    }]
+    let projectArr = [];
 
 
     let taskArr = [];
@@ -22,6 +16,12 @@ export const Storage = (() => {
         }
     }
     
+    function clearElement (element) {
+        while(element.firstChild) {
+            element.removeChild(element.firstChild)
+        }
+    }
+// ---------------------------------------
     class Task {
         constructor (task_name, due, count) {
             this.task_name = task_name;
@@ -29,9 +29,9 @@ export const Storage = (() => {
             this.count = count;
         }
     }
-        
+    
 
-        const getUserInput = () => {
+    const getUserInput = () => {
             const $title = document.querySelector('#title');
             const pdate = document.querySelector('#project_date');
             let project_name = $title.value;
@@ -56,9 +56,33 @@ export const Storage = (() => {
             console.log(Project.project_name);
             console.log(taskArr);
         };
-
         
-
+        
+        
         return { getUserInput, projectArr, Project, Task, taskArr, getTaskInput }
-})
-();
+    })
+    ();
+    
+    // -----------new---------
+        // newListForm.addEventListener('submit', e => {
+        //     e.preventDefault()
+        //     const listName= newListInput.value
+        //     if(listName == null || listName === '') return
+        //     const list = createList(listName);
+    
+        // })
+    
+        // function createList (name) {
+        //     return {id: Date.now().toString(), name: name, task: []}
+        // }
+        
+        // function render() {
+        //     clearElement(listContainer)
+        //     projectArr.forEach(ProjectArr => {
+        //         const listElement = document.createElement('li')
+        //         listElement.datasest.listId = list.id
+        //         listElement.classList.add('list-name')
+        //         listElement.innerText = projectArr.name
+        //         listContainer.appendChild(listElement)
+        //     })
+        // }
