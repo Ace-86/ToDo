@@ -8,7 +8,7 @@ export const Dom = (() => {
     const newProject = document.createElement('button');
     const projectName = document.createElement('p');
     const section = document.createElement('div');
-    section.className = 'pblock';
+    section.className = 'staticBlock';
     projectName.className= 'project_name';
     projectName.textContent= 'Create Project';
     modal.className= 'projectModal';
@@ -22,39 +22,43 @@ export const Dom = (() => {
     }
 
     const projectAdd = () => {
+        // const projSect = document.querySelector('.block');
+        
+        // clearElement(projSect);
+        // Storage.projectArr.forEach(projectArr => {
         const panel = document.querySelector('.sidepanel');
         const pdate = document.querySelector('#project_date');
-        const editProject = document.createElement('button');
         const projectName = document.createElement('li');
-        const deleteProject = document.createElement('button');
-        const section = document.createElement('div');
+        const projSect = document.createElement('div');
         const $title = document.querySelector('#title');
-        const $date = document.createElement('p');
         const modal = document.querySelector('#modalForm');
-        $date.className = 'projectDate';
-        $date.textContent = pdate.value;
-        section.className = 'pblock';
+        projSect.className = 'block';
         projectName.className = 'projectList';
         projectName.textContent = $title.value;
-        deleteProject.className = 'removeProject';
-        deleteProject.textContent = 'X';
-        editProject.className= 'editProject';
-        editProject.textContent='edit';
-        panel.appendChild(section);
-        section.appendChild(deleteProject); 
-        section.appendChild(editProject);
-        section.appendChild(projectName);
-        section.appendChild($date);
-        Storage.getUserInput();
-        const deleteP = () => {
-            panel.removeChild(panel.firstChild);
-        }
+        panel.appendChild(projSect);
+        projSect.appendChild(projectName);
+        // return {pdate, deleteProject}
+    // })
 
-        deleteProject.addEventListener('click', deleteP);
+        Storage.getUserInput();
+        // const deleteP = () => {
+        //     panel.removeChild(panel.firstChild);
+        // }
+        // const $title = document.querySelector('#title');
+        // const pdate = document.querySelector('#project_date');
+        // const deleteProject = document.querySelector('button');
+        // deleteProject.addEventListener('click', deleteP) 
         
         // ---------clears modal inputs----------
         pdate.value = '';
         $title.value= '';
+    }
+
+    function clearElement (element) {
+        // const section = document.querySelector('.pblock');
+        while (element.firstChild) {
+            element.removeChild(element.firstChild)
+        } 
     }
 
     const task = () => {
