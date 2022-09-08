@@ -8,6 +8,8 @@
     <body>
     <div class="page-wrap">
         <div class="header" id="border">To-Do List</div>
+        
+        <!-- ----------list-------- -->
         <div class="sidepanel" id="border">
             <h1 class="createProject"> My List</h1>
                 <ul class="lists" data-lists> 
@@ -23,12 +25,55 @@
                     aria-label="new list name"
                     />
                     <button class="btn create" aria-label="create new list"> + </button>
+                    <button class="btn" id="clearBtn" data-delete-list-button> Clear</button>
                 </form>
         </div>
-        <div class="content" id="border"> </div>
+      
+        <!-- ---------task ----------- -->
+       
+        <div class="content" id="border">
+        
+        <div class="todo-list" data-list-display-container> 
+            <div class="todo-header">
+                <h2 class="list-title" data-list-title> My Task </h2>
+                <p class="task-count" data-list-count> </p>
+            </div>
+
+
+        <div class = "todo-body">        
+            <div class="tasks" data-tasks> </div>       
+                <!-- <div class="task">
+                    <input
+                    type="checkbox"
+                    id="task-1"
+                    />
+                <label for = "task-1">
+                    <span class="custom-checkbox"></span>
+                </label>
+            </div>  -->
+        </div>
+           
+            <div class="new-task">
+                <form action=" " data-new-task-form>
+                    <input
+                    data-new-task-input
+                    type="text"
+                    class="new task"
+                    placeholder="new task name"
+                    aria-label="new task name"
+                    />
+                    <button class="btn" aria-label="create new task"> + </button>
+                        <button class="btn" id="delete-task-button" data-clear-complete-tasks-button> Clear</button>
+                </form>
+            </div>
+        </div>
+            
+        </div>
+        
+      <!-- ---------------footer-----------   -->
         <div class="footer" id="border">
         <p> Created by Aaron Griffin</p>
-        <div id="modalForm" class="modal">
+        <!-- <div id="modalForm" class="modal">
             <div class="form-content">
                 <span class="exit"> &times; </span>
                 <div class="logData">
@@ -46,8 +91,17 @@
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>     -->
         </div>
     </div>
+    
+    <template id = "task-template">
+        <div class="task">
+            <input type="checkbox">
+            <label>
+                <span class="custom-checkbox"></span>
+            </label>
+        </div>
+    </template>
   </body>
 </html>
