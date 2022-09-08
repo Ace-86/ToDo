@@ -32,6 +32,22 @@ listsContainer.addEventListener('click', e => {
     }
 })
 
+newListForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const listName = newListInput.value
+    if(listName == null || listName === '') return
+    const list = createList(listName)
+    newListInput.value = null
+    listsArr.push(list)
+    saveAndRender()
+})
+
+deleteListButton.addEventListener('click', e => {
+    listsArr = listsArr.filter(list => list.id !== selectedListId)
+    selectedListId = null
+    saveAndRender()
+})
+
 taskContainer.addEventListener('click', e => {
     if (e.target.tagName.toLowerCase() === 'input') {
         const selectedList = listsArr.find(list => list.id === selectedListId)
@@ -48,12 +64,6 @@ clearCompleteTaskButton.addEventListener('click', e => {
     saveAndRender()
 })
 
-deleteListButton.addEventListener('click', e => {
-    listsArr = listsArr.filter(list => list.id !== selectedListId)
-    selectedListId = null
-    saveAndRender()
-})
-
 newTaskForm.addEventListener('submit', e => {
     e.preventDefault();
     const taskName = newTaskInput.value
@@ -65,15 +75,6 @@ newTaskForm.addEventListener('submit', e => {
     saveAndRender()
 })
 
-newListForm.addEventListener('submit', e => {
-    e.preventDefault();
-    const listName = newListInput.value
-    if(listName == null || listName === '') return
-    const list = createList(listName)
-    newListInput.value = null
-    listsArr.push(list)
-    saveAndRender()
-})
 // --------------------functions---------------
 
 function createList(name) {
