@@ -1,6 +1,3 @@
 # ToDo
 To-Do list application
-Practice using webpacks and npm. 
-keep scripts withing seperate modules 
-use import / export 
-
+fix list delete funtion-task get erased
