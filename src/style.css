@@ -59,7 +59,11 @@
     font-weight: bolder;
     font-size: large;
 }
-  
+
+.list-name.active-list {
+ color: red;
+}
+
   /* ----------------------side panel---------------- */
   
   .sidepanel {
