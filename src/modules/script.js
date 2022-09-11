@@ -1,5 +1,6 @@
 import { $storage } from './storage.js';
-
+// import { $event } from './events.js';
+ 
 export const script = (() => { 
     // --------------constants----------
 const listsContainer = document.querySelector('[data-lists]')
@@ -25,12 +26,12 @@ let selectedListId = localStorage.getItem
 
 // -------------event listeners-----------------
 
-listsContainer.addEventListener('click', e => {
-    if (e.target.tagName.toLowerCase() === 'li') {
-        selectedListId = e.target.dataset.listId
-        saveAndRender()
-    }
-})
+// listsContainer.addEventListener('click', e => {
+//     if (e.target.tagName.toLowerCase() === 'li') {
+//         selectedListId = e.target.dataset.listId
+//         saveAndRender()
+//     }
+// })
 
 newListForm.addEventListener('submit', e => {
     e.preventDefault();
