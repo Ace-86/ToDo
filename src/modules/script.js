@@ -1,4 +1,4 @@
-
+import { $storage } from './storage.js';
 
 export const script = (() => { 
     // --------------constants----------
@@ -87,14 +87,14 @@ function createTask(name) {
  
 
 function saveAndRender () {
-    save()
+    $storage.save()
     render()
 }
 
-function save() {
-    localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(listsArr))
-    localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY, selectedListId)
-}
+// function save() {
+//     localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(listsArr))
+//     localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY, selectedListId)
+// }
 
 function render() {
     clearElement(listsContainer)
