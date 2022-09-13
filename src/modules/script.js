@@ -1,4 +1,4 @@
-import { $storage } from './storage.js';
+// import { $storage } from './storage.js';
 // import { $event } from './events.js';
  
 export const script = (() => { 
@@ -26,12 +26,14 @@ let selectedListId = localStorage.getItem
 
 // -------------event listeners-----------------
 
-// listsContainer.addEventListener('click', e => {
-//     if (e.target.tagName.toLowerCase() === 'li') {
-//         selectedListId = e.target.dataset.listId
-//         saveAndRender()
-//     }
-// })
+listsContainer.addEventListener('click', e => {
+    if (e.target.tagName.toLowerCase() === 'li') {
+        selectedListId = e.target.dataset.listId
+        saveAndRender()
+        console.log(selectedListId)
+        listDisplayContainer.style.display = ''
+    }
+})
 
 newListForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -42,12 +44,13 @@ newListForm.addEventListener('submit', e => {
     listsArr.push(list)
     saveAndRender()
 })
-
+// --------------------------main issue delete removes task---------------
 deleteListButton.addEventListener('click', e => {
     listsArr = listsArr.filter(list => list.id !== selectedListId)
     selectedListId = null
     saveAndRender()
 })
+// -------------------------------------------------------------------
 
 taskContainer.addEventListener('click', e => {
     if (e.target.tagName.toLowerCase() === 'input') {
@@ -88,21 +91,23 @@ function createTask(name) {
  
 
 function saveAndRender () {
-    $storage.save()
+    save()
     render()
 }
 
-// function save() {
-//     localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(listsArr))
-//     localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY, selectedListId)
-// }
+function save() {
+    localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(listsArr))
+    localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY, selectedListId)
+}
 
 function render() {
     clearElement(listsContainer)
     renderList()
     const selectedList = listsArr.find(list => list.id === selectedListId)
+    // --------------problem code--------------
     if (selectedListId == null) {
-        listDisplayContainer.style.display = 'none'
+        listDisplayContainer.style.display = 'none';
+        // ----------------------------------
     } else {
         listDisplayContainer.style.diplay = ''
         listTitleElement.innerText = selectedList.name
