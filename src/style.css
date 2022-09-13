@@ -61,7 +61,8 @@
 }
 
 .list-name.active-list {
- color: red;
+ color: rgb(195, 0, 255);
+ text-shadow: 0 5px 15px rgb(195, 0, 255);
 }
 
   /* ----------------------side panel---------------- */
