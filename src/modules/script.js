@@ -26,6 +26,8 @@ let selectedListId = localStorage.getItem
 
 // -------------event listeners-----------------
 
+
+// -------------when list item is clicked into focus-----------
 listsContainer.addEventListener('click', e => {
     if (e.target.tagName.toLowerCase() === 'li') {
         selectedListId = e.target.dataset.listId
@@ -35,6 +37,7 @@ listsContainer.addEventListener('click', e => {
     }
 })
 
+// -------------when add button is clicked on list------------
 newListForm.addEventListener('submit', e => {
     e.preventDefault();
     const listName = newListInput.value
@@ -44,7 +47,7 @@ newListForm.addEventListener('submit', e => {
     listsArr.push(list)
     saveAndRender()
 })
-// --------------------------main issue delete removes task---------------
+// --------------------------delete button---------------
 deleteListButton.addEventListener('click', e => {
     listsArr = listsArr.filter(list => list.id !== selectedListId)
     selectedListId = null
@@ -62,12 +65,14 @@ taskContainer.addEventListener('click', e => {
     }
 })
 
+// -------clears compeleted task---------
 clearCompleteTaskButton.addEventListener('click', e => {
     const selectedList = listsArr.find(list => list.id === selectedListId)
     selectedList.task = selectedList.task.filter(task => !task.complete)
     saveAndRender()
 })
 
+// ---------------add new task button-----------
 newTaskForm.addEventListener('submit', e => {
     e.preventDefault();
     const taskName = newTaskInput.value
@@ -80,11 +85,11 @@ newTaskForm.addEventListener('submit', e => {
 })
 
 // --------------------functions---------------
-
+// list object
 function createList(name) {
    return {id: Date.now().toString(), name: name, task: []}
 }
-
+// task object
 function createTask(name) {
     return {id: Date.now().toString(), name: name, complete: false}
  }
@@ -104,10 +109,8 @@ function render() {
     clearElement(listsContainer)
     renderList()
     const selectedList = listsArr.find(list => list.id === selectedListId)
-    // --------------problem code--------------
     if (selectedListId == null) {
         listDisplayContainer.style.display = 'none';
-        // ----------------------------------
     } else {
         listDisplayContainer.style.diplay = ''
         listTitleElement.innerText = selectedList.name
@@ -154,7 +157,7 @@ function renderList() {
     })
 }
 
-
+// clear function
 function clearElement(element) {
     while (element.firstChild) {
         element.removeChild(element.firstChild)
